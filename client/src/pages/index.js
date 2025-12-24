@@ -1,0 +1,11 @@
+export {default as Dashboard} from './Dashboard';
+export {default as AddPost} from './AddPost';
+export {default as DeletePost} from './DeletePost';
+export {default as Hero} from './Hero';
+export {default as Admin} from './Admin';
+export {default as AllPosts} from './AllPosts';
+export {default as EditPost} from './EditPost';
+export {default as Login} from './Login';
+export {default as Profile} from './Profile';
+export {default as Register} from './Register';
+export {default as Home} from './Home';
