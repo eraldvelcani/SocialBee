@@ -10,8 +10,8 @@
 }
 
 body {
-  background: var(--background-color);
-  color: var(--text-color);
+  background: gray;
+  color: whitesmoke;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 400;
@@ -31,6 +31,25 @@ small,
 
 a {
   text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 400;
+  margin: 0;
+}
+
+.container {
+  width: 90vw;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 ul {
