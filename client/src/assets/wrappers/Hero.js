@@ -16,14 +16,22 @@ const Wrapper = styled.section`
     }
 
     h1 span {
-        color: goldenrod;
+        color: gold;
+    }
+
+    h1 .blackSpan {
+        color: black;
     }
 
     .page {
         display: grid;
         align-items: center;
         min-height: calc(100vh - 6rem);
-        margin-top: -3rem;
+        /* margin-top: -3rem; */
+    }
+
+    .logo {
+        max-width: 14rem;
     }
 
     .btn {
