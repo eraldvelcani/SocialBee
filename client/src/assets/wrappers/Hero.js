@@ -13,6 +13,7 @@ const Wrapper = styled.section`
     h1 {
         font-weight: 600;        
         margin-bottom: 1.5rem;
+        font-size: clamp(2rem, 5vw, 5rem);
     }
 
     h1 span {
