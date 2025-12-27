@@ -17,7 +17,7 @@ const Wrapper = styled.section`
     }
 
     h1 span {
-        color: gold;
+        color: #FFBE49;
     }
 
     h1 .blackSpan {
