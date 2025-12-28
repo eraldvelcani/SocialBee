@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RegForm = ({ type, name, label }) => {
+const RegAndLogForm = ({ type, name, label }) => {
   return (
     <div className="form-row">
       <label htmlFor={name} className="form-label">
@@ -17,4 +17,4 @@ const RegForm = ({ type, name, label }) => {
   );
 }
 
-export default RegForm;
+export default RegAndLogForm;

@@ -1,23 +1,23 @@
 import styled from "styled-components";
-import { Logo, RegForm } from "../components";
+import { Logo, RegAndLogForm } from "../components";
 import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
-        <div>
+        <>
             <form className="form">
                 <Logo />
                 <h4>Create an Account</h4>
-                <RegForm type="text" name="name" label="First Name" />
-                <RegForm type="text" name="lastName" label="Last Name" />
-                <RegForm type="email" name="email" label="E-Mail" />
-                <RegForm type="password" name="password" label="Password" />
+                <RegAndLogForm type="text" name="name" label="First Name" />
+                <RegAndLogForm type="text" name="lastName" label="Last Name" />
+                <RegAndLogForm type="email" name="email" label="E-Mail" />
+                <RegAndLogForm type="password" name="password" label="Password" />
                 <button type="submit" className="btn btn-block">Register</button>
-                <p>Already own an account?
-                    <Link to="/login" className="login-btn"> Login</Link>
-                </p>
+                <div>
+                <Link to="/login" className="login-btn"> Log In Instead</Link>
+                </div>
             </form>            
-        </div>
+        </>
     );
 };
 
