@@ -15,7 +15,7 @@ const Error = () => {
     }
     return (
         <Wrapper>
-            <h1>Unknown Error</h1>
+            <h1 className="unknown">Unknown Error</h1>
             <Link to="/">Return</Link>
         </Wrapper>
     )

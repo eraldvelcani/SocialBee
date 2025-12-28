@@ -12,13 +12,16 @@ const Wrapper = styled.main`
 
     h1 {
         font-family: 'Orbitron', sans-serif;  
-        font-size: clamp(10rem, 15vw, 20rem);
+        font-size: clamp(5rem, 15vw, 20rem);
         color: black;
         .yellow {
             color: #db9718ff;
         }
     }
 
+    .unknown {
+        font-size: clamp(2rem, 5vw, 5rem);
+    }
     
     h2 {
         margin-bottom: 0.5rem;
