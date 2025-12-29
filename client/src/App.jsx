@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Home, Hero, Dashboard, Login, Register, Error } from './pages';
+import { Home, Hero, Dashboard, Login, Register, Error, Profile, AllPosts, AddPost, Admin } from './pages';
 
 const router = createBrowserRouter([
     {
@@ -19,6 +19,24 @@ const router = createBrowserRouter([
             {
                 path: 'dashboard',
                 element: <Dashboard />,
+                children: [
+                    {
+                        index: true,
+                        element: <AddPost />
+                    },
+                    {
+                        path: 'all-posts',
+                        element: <AllPosts />
+                    },
+                    {
+                        path: 'profile',
+                        element: <Profile />
+                    },
+                    {
+                        path: 'admin',
+                        element: <Admin />
+                    },
+                ]
             },
             {
                 path: 'login',
