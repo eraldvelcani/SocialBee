@@ -4,11 +4,12 @@ import { FaTimes } from 'react-icons/fa';
 import Logo from './Logo';
 import links from '../utils/links';
 import { NavLink } from 'react-router-dom';
+import Wrapper from '../assets/wrappers/MobileBar';
 
 const MobileBar = () => {
     const {showSidebar, toggleSidebar} = useDashboardContext();
   return (
-    <div>
+    <Wrapper>
         <div className={showSidebar ? 'sidebar-contaienr show-sidebar' : 'sidebar-container'}>
             <div className='content'>
                 <button type='button' className='close-btn' onClick={toggleSidebar} >
@@ -30,7 +31,7 @@ const MobileBar = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </Wrapper>
   )
 }
 
