@@ -5,7 +5,7 @@ const links = [
         text: 'add post', path: '.'/*, icon:*/
     },
     {
-        text: 'all posts', path: 'all-jobs'/*, icon:*/
+        text: 'all posts', path: 'all-posts'/*, icon:*/
     },
     {
         text: 'profile', path: 'profile'/*, icon:*/

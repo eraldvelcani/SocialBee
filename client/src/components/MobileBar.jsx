@@ -6,12 +6,12 @@ import links from '../utils/links';
 import { NavLink } from 'react-router-dom';
 
 const MobileBar = () => {
-    const data = useDashboardContext();
+    const {showSidebar, toggleSidebar} = useDashboardContext();
   return (
     <div>
-        <div className='sidebar-container show-sidebar'>
+        <div className={showSidebar ? 'sidebar-contaienr show-sidebar' : 'sidebar-container'}>
             <div className='content'>
-                <button type='button' className='close-btn'>
+                <button type='button' className='close-btn' onClick={toggleSidebar} >
                     <FaTimes />
                 </button>
                 <header>
