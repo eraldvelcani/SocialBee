@@ -5,6 +5,7 @@ import Logo from './Logo';
 import links from '../utils/links';
 import { NavLink } from 'react-router-dom';
 import Wrapper from '../assets/wrappers/MobileBar';
+import NavLinks from './NavLinks';
 
 const MobileBar = () => {
     const {showSidebar, toggleSidebar} = useDashboardContext();
@@ -18,17 +19,7 @@ const MobileBar = () => {
                 <header>
                     <Logo />
                 </header>
-                <div className="nav-links">
-                    {links.map((link) => {
-                        const {text, path /*, icon */} = link;
-                        return <NavLink to={path} key={text} className='nav-link'>
-                                   <span className='icon'>
-                                        {/*{icon}*/}
-                                    </span> 
-                                    {text}
-                               </NavLink>
-                    })}
-                </div>
+                <NavLinks />
             </div>
         </div>
     </Wrapper>
