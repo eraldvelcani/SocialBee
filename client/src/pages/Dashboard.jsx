@@ -19,7 +19,7 @@ const Dashboard = () => {
     };   
 
     return (
-        <DashboardContext.Provider value={ { showSidebar, toggleSidebar, user } }> {/* context step 2: now all jsx components below can use this value */}
+        <DashboardContext.Provider value={ { showSidebar, toggleSidebar, user, logOutUser } }> {/* context step 2: now all jsx components below can use this value */}
             <Wrapper>
                 <main className="dashboard">
                     <MobileBar />
