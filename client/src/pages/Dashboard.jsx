@@ -6,14 +6,20 @@ import { createContext, useContext, useState } from "react";
 const DashboardContext = createContext(); //context step 1: creating context to use toggleSidebar in jsx components 
 
 const Dashboard = () => {
+    const user = { name: 'testUser' };
+
     const [showSidebar, setShowSidebar] = useState(false);
-    
+
     const toggleSidebar = () => {
         setShowSidebar(!showSidebar);
     };
 
+    const logOutUser = async () => {
+        console.log('user logged out.');
+    };   
+
     return (
-        <DashboardContext.Provider value={ { showSidebar, toggleSidebar } }> {/* context step 2: now all jsx components below can use this value */}
+        <DashboardContext.Provider value={ { showSidebar, toggleSidebar, user } }> {/* context step 2: now all jsx components below can use this value */}
             <Wrapper>
                 <main className="dashboard">
                     <MobileBar />
