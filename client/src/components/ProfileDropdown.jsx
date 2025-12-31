@@ -5,7 +5,7 @@ import { useDashboardContext } from '../pages/Dashboard';
 
 const ProfileDropdown = () => {
   const [showLogoutBtn, setShowLogoutBtn] = useState(false);
-  const {user, logoutUser} = useDashboardContext();
+  const {user, logOutUser} = useDashboardContext();
   return (
     <div>
         <button type='button' onClick={() => setShowLogoutBtn(!showLogoutBtn)} className='btn logout-btn'>
@@ -14,7 +14,9 @@ const ProfileDropdown = () => {
             <FaCaretDown />
         </button>
         <div className={showLogoutBtn ? 'dropdown show-dropdown' : 'dropdown'}>
-
+            <button type='button' onClick={logOutUser} className='dropdown-btn'>
+                Sign Out
+            </button>
         </div>
     </div>
   )
