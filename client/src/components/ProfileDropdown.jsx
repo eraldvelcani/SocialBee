@@ -2,12 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import { FaUser, FaCaretDown } from "react-icons/fa6";
 import { useDashboardContext } from '../pages/Dashboard';
+import Wrapper from '../assets/wrappers/ProfileDropdown';
 
 const ProfileDropdown = () => {
   const [showLogoutBtn, setShowLogoutBtn] = useState(false);
   const {user, logOutUser} = useDashboardContext();
   return (
-    <div>
+    <Wrapper>
         <button type='button' onClick={() => setShowLogoutBtn(!showLogoutBtn)} className='btn logout-btn'>
             <FaUser />
             {user?.name} {/*optional chaining -> if user is present */}
@@ -18,7 +19,7 @@ const ProfileDropdown = () => {
                 Sign Out
             </button>
         </div>
-    </div>
+    </Wrapper>
   )
 }
 
