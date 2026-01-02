@@ -69,8 +69,27 @@ app.patch('/api/v1/posts/:id', (req, res) => {
 });
 
 
-//edit post
+//delete post
+app.delete('/api/v1/posts/:id', (req, res) => {
+    const {id} = req.params;
+    const post = posts.find((post) => post.id === id);
+    if (!post) {
+        return res.status(404).json({ msg: `error: post with id ${id} not found` });
+    }
+    const newPosts = posts.filter((post) => post.id !== id);
+    posts = newPosts;
+    res.status(200).json({ msg: 'post delted' });
+});
 
+
+app.use('*', (req, res) => {
+    res.status(404).json({ msg: 'rotue not found' });
+});
+
+app.use((err, req, res, next) => { //error middleware
+    console.log(err);
+    res.status(500).json({ msg: 'unknown error' });
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
