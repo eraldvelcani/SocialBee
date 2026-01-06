@@ -1,19 +1,7 @@
 import * as dotenv from 'dotenv'; dotenv.config();
 import express, { json } from "express"; const app = express();
 import morgan from "morgan";
-import { nanoid } from 'nanoid';
-
-let posts = [
-    {
-        id:nanoid(), content: 'media', caption: 'caption1'
-    },
-    {
-        id:nanoid(), content: 'media', caption: null
-    },
-    {
-        id:nanoid(), content: 'text', caption: 'text1'
-    },
-]
+import postRouter from './routes/postRouter.js';
 
 if (process.env.NODE_ENV === 'development' ) {
     app.use(morgan('dev'));
@@ -22,65 +10,34 @@ if (process.env.NODE_ENV === 'development' ) {
 app.use(express.json()); //middleware to accept json data coming from frontend e.g user logging in, creating post etc
 
 
-//get all posts
-app.get('/api/v1/posts', (req, res) => {
-    res.status(200).json({ posts });
-});
+// //get all posts
+// app.get('/api/v1/posts', (req, res) => {
+// });
 
 
-//create post
-app.post('/api/v1/post', (req, res) => {
-    const {content, caption} = req.body;
-    if (content === 'text' && !caption || !content) {
-        return res.status(400).json({ msg: "error: content or caption not provided" });
-    }
-    const id = nanoid(8);
-    const post = {id, content, caption};
-    posts.push(post);
-    res.status(200).json({ post });
-});
+// //create post
+// app.post('/api/v1/post', (req, res) => {
+// });
 
 
-//get post
-app.get('/api/v1/posts/:id', (req, res) => {
-    const {id} = req.params;
-    const post = posts.find((post) => post.id === id);
-    if (!post) {
-        return res.status(404).json({ msg: `error: post with id ${id} not found` });
-    }
-    res.status(200).json({ post });
-});
+// //get post
+// app.get('/api/v1/posts/:id', (req, res) => {
+    
+// });
 
 
-//edit post
-app.patch('/api/v1/posts/:id', (req, res) => {
-    const { content, caption } = req.body;
-    if (content === 'text' && !caption || !content) {
-        res.status(400).json({ msg: 'error: content or caption not provided' });
-    }
-    const {id} = req.params;
-    const post = posts.find((post) => post.id === id);
-    if (!post) {
-        return res.status(404).json({ msg: `error: post with id ${id} not found` });
-    }
-    post.content = content;
-    post.caption = caption;
-    res.status(200).json({ msg: "post modified", post });
-});
+// //edit post
+// app.patch('/api/v1/posts/:id', (req, res) => {
+    
+// });
 
 
-//delete post
-app.delete('/api/v1/posts/:id', (req, res) => {
-    const {id} = req.params;
-    const post = posts.find((post) => post.id === id);
-    if (!post) {
-        return res.status(404).json({ msg: `error: post with id ${id} not found` });
-    }
-    const newPosts = posts.filter((post) => post.id !== id);
-    posts = newPosts;
-    res.status(200).json({ msg: 'post delted' });
-});
+// //delete post
+// app.delete('/api/v1/posts/:id', (req, res) => {
+    
+// });
 
+app.use('/api/v1/posts', postRouter);
 
 app.use('*', (req, res) => {
     res.status(404).json({ msg: 'rotue not found' });
