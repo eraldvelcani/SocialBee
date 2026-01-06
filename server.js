@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv'; dotenv.config();
 import express, { json } from "express"; const app = express();
 import morgan from "morgan";
 import postRouter from './routes/postRouter.js';
+import mongoose from 'mongoose';
 
 if (process.env.NODE_ENV === 'development' ) {
     app.use(morgan('dev'));
@@ -49,6 +50,16 @@ app.use((err, req, res, next) => { //error middleware
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`server running on port ${PORT}.`);
-});
+
+try {
+    await mongoose.connect(process.env.MONGO_URL);
+    app.listen(PORT, () => {
+        console.log(`Server running on PORT ${PORT}`);
+    })
+} catch (error) {
+    console.log(error);
+    process.exit(1);
+}
+
+
+
